@@ -163,15 +163,9 @@
         <h2 class="split">Certified to deliver.</h2>
         <p class="lede" id="cred-count"></p>
       </header>
-      <ul class="cred-wall" id="cred-wall" aria-label="Certification badges"></ul>
-      <div class="creds">
-        <div class="cred-stage" id="cred-stage" aria-hidden="true"><div class="cred-ring" id="cred-ring"></div></div>
-        <div class="cred-side">
-          <div class="cred-detail glass" id="cred-detail" aria-live="polite"></div>
-          <ul class="edu" id="edu" aria-label="Education"></ul>
-        </div>
-      </div>
-      <ul class="cred-chips" id="cred-list" aria-label="All certifications"></ul>
+      <ul class="cert-grid" id="cert-grid" aria-label="Certifications"></ul>
+      <h3 class="sub-head">Education</h3>
+      <ul class="edu edu-row" id="edu" aria-label="Education"></ul>
       <h3 class="sub-head">Systems and tools</h3>
       <div class="toolkit-grid" id="toolkit-grid"></div>
     </div>
@@ -365,6 +359,18 @@
     <button class="btn btn-solid" id="gate-submit" type="submit">Request case study</button>
     <p class="gate-fine">Your email goes only to Zaigham. No newsletters, no sharing.</p>
   </form>
+</dialog>
+
+<dialog class="certbox" id="certbox" aria-labelledby="certbox-title">
+  <div class="certbox-inner">
+    <div class="certbox-head">
+      <div class="certbox-id" id="certbox-id"></div>
+      <button class="btn btn-glass btn-sm" id="certbox-close" type="button">Close</button>
+    </div>
+    <dl class="cd-facts" id="certbox-facts"></dl>
+    <figure class="certbox-fig"><img id="certbox-img" alt=""></figure>
+    <div class="certbox-actions"><a class="btn btn-glass btn-sm" id="certbox-open" target="_blank" rel="noopener">Open full size</a></div>
+  </div>
 </dialog>
 
 <dialog class="jump" id="jump" aria-label="Search the portfolio">

@@ -170,7 +170,7 @@
     var t = TL[i];
     $("tbar").querySelectorAll("button").forEach(function (b, k) { b.setAttribute("aria-selected", k === i); b.tabIndex = k === i ? 0 : -1; });
     $("role-card").setAttribute("aria-labelledby", "tl-" + i);
-    var tb = $("tbar"), tbtn = $("tl-" + i); if (tb.scrollWidth > tb.clientWidth + 2) tb.scrollLeft = tbtn.offsetLeft - tb.offsetLeft - (tb.clientWidth - tbtn.offsetWidth) / 2;
+    var tw = document.querySelector(".tbar-wrap"), tbtn = $("tl-" + i); if (tw && tw.scrollWidth > tw.clientWidth + 2) tw.scrollLeft = tbtn.offsetLeft - (tw.clientWidth - tbtn.offsetWidth) / 2;
     $("role-card").innerHTML = "<div><span class=\"role-meta\">" + esc(t.era) + ", " + esc(t.dates) + ", " + esc(t.place) + "</span><h3 class=\"role-hook\">" + esc(t.hook) + "</h3><p class=\"role-title\">" + esc(t.title) + ", " + esc(t.org) + "</p></div>" +
       "<ul class=\"wins\">" + t.wins.map(function (w) { return "<li>" + esc(w) + "</li>"; }).join("") + "</ul>";
   }
@@ -328,49 +328,32 @@
     var d = e.target.closest("#case-grid [data-case]"); if (d) openCase(d.getAttribute("data-case"));
   });
 
-  /* Credentials ring */
+  /* Credentials: one grid of verifiable badges, each opens its certificate */
   var SEAL = "<svg viewBox=\"0 0 24 24\"><path d=\"M12 3l2.5 2 3.2-.3.9 3.1 2.6 1.9-1.2 3 1.2 3-2.6 1.9-.9 3.1-3.2-.3L12 21l-2.5-2-3.2.3-.9-3.1-2.6-1.9 1.2-3-1.2-3 2.6-1.9.9-3.1 3.2.3Z\"/><path d=\"m9 12 2 2 4-4\"/></svg>";
   function credBadge(c, big) { return "<span class=\"cred-seal" + (c.logo ? " has-logo" : "") + (big ? " big" : "") + "\">" + (c.logo ? "<img src=\"" + esc(c.logo) + "\" alt=\"\" loading=\"lazy\" decoding=\"async\">" : SEAL) + "</span>"; }
-  function credWhen(c) { return [c.date ? "Earned " + c.date : "", c.valid || ""].filter(Boolean).join(" · ") || "Verified"; }
-  var creds = P.credentials || [], ringEl = $("cred-ring"), stage = $("cred-stage"), angle = 0, autoSpin = !reduce, focusIdx = -1, credVisible = false;
-  var step = 360 / creds.length, radius = Math.round(170 / 2 / Math.tan(Math.PI / creds.length)) + 46;
-  ringEl.innerHTML = creds.map(function (c, i) {
-    return "<div class=\"cred-card\" data-i=\"" + i + "\" style=\"transform: rotateY(" + (i * step) + "deg) translateZ(" + radius + "px)\">" + credBadge(c) +
-      "<span class=\"cred-code\">" + esc(c.code) + "</span><span class=\"cred-name\">" + esc(c.name) + "</span><span class=\"cred-issuer\">" + esc(c.issuer) + "</span><span class=\"cred-date\">" + esc(credWhen(c)) + "</span></div>";
+  var creds = P.credentials || [];
+  if ($("cred-count")) $("cred-count").textContent = creds.length + " certifications, each one verifiable. Tap any card to see the certificate.";
+  $("cert-grid").innerHTML = creds.map(function (c, i) {
+    var when = c.valid ? c.valid : (c.date ? "Earned " + c.date : "");
+    return "<li><button class=\"cert-card\" type=\"button\" data-ci=\"" + i + "\" aria-label=\"" + esc(c.name + ", view certificate") + "\">" + credBadge(c) +
+      "<span class=\"cert-body\"><b class=\"cert-code\">" + esc(c.code) + "</b><span class=\"cert-name\">" + esc(c.name) + "</span><span class=\"cert-meta\">" + esc(c.issuer) + (when ? " · " + esc(when) : "") + "</span></span>" +
+      "<span class=\"cert-view\" aria-hidden=\"true\">View</span></button></li>";
   }).join("");
-  var credCards = Array.prototype.slice.call(ringEl.querySelectorAll(".cred-card"));
-  var wall = $("cred-wall");
-  if (wall) wall.innerHTML = creds.map(function (c, i) { return "<li><button type=\"button\" data-i=\"" + i + "\" title=\"" + esc(c.name + (c.date ? ", " + c.date : "")) + "\">" + credBadge(c) + "<span><b>" + esc(c.code) + "</b><small>" + esc(c.date || c.valid || c.issuer) + "</small></span></button></li>"; }).join("");
-  if (wall) wall.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { autoSpin = false; rotateTo(+b.getAttribute("data-i")); } });
-  if ($("cred-count")) $("cred-count").textContent = creds.length + " credentials, each one verifiable. Tap a badge to see the certificate.";
-  $("cred-list").innerHTML = creds.map(function (c, i) { return "<li><button type=\"button\" data-i=\"" + i + "\" aria-pressed=\"false\" title=\"" + esc(c.name) + "\">" + esc(c.code) + "</button></li>"; }).join("");
-  function showCred(i) {
-    if (i === focusIdx) return; focusIdx = i; var c = creds[i];
-    $("cred-detail").innerHTML = "<div class=\"cd-top\">" + credBadge(c, true) + "<div><span class=\"cred-code\">" + esc(c.code) + "</span><h3>" + esc(c.name) + "</h3><span class=\"mono muted\">" + esc(c.issuer) + "</span></div></div>" +
-      "<dl class=\"cd-facts\">" + (c.date ? "<div><dt>Earned</dt><dd>" + esc(c.date) + "</dd></div>" : "") + (c.valid ? "<div><dt>Status</dt><dd>" + esc(c.valid) + "</dd></div>" : "") + (c.id ? "<div><dt>Credential ID</dt><dd class=\"mono\">" + esc(c.id) + "</dd></div>" : "") + "</dl>" +
-      "<p>" + esc(c.note) + "</p>" + (c.credentialUrl || c.file ? "<a class=\"btn btn-glass btn-sm\" href=\"" + esc(c.credentialUrl || c.file) + "\" target=\"_blank\" rel=\"noopener\">View certificate</a>" : "");
-    credCards.forEach(function (el, k) { el.classList.toggle("front", k === i); });
-    $("cred-list").querySelectorAll("button").forEach(function (b, k) { b.setAttribute("aria-pressed", k === i); });
+  var certbox = $("certbox");
+  function openCert(i) {
+    var c = creds[i]; if (!c) return;
+    $("certbox-id").innerHTML = credBadge(c, true) + "<div><span class=\"cert-code\">" + esc(c.code) + "</span><h2 id=\"certbox-title\">" + esc(c.name) + "</h2><span class=\"mono muted\">" + esc(c.issuer) + "</span></div>";
+    $("certbox-facts").innerHTML = (c.date ? "<div><dt>Earned</dt><dd>" + esc(c.date) + "</dd></div>" : "") + (c.valid ? "<div><dt>Status</dt><dd>" + esc(c.valid) + "</dd></div>" : "") + (c.id ? "<div><dt>Credential ID</dt><dd class=\"mono\">" + esc(c.id) + "</dd></div>" : "");
+    var img = $("certbox-img"), src = c.image || "";
+    img.hidden = !src; img.alt = src ? c.name + " certificate" : ""; if (src) img.src = src; else img.removeAttribute("src");
+    var open = $("certbox-open"), href = c.credentialUrl || c.file || c.image;
+    open.hidden = !href; if (href) open.href = href;
+    openDialog(certbox); $("certbox-close").focus({ preventScroll: true });
+    track("cert_view", { cert: c.code });
   }
-  function frontIndex() { var a = ((-angle % 360) + 360) % 360; return Math.round(a / step) % creds.length; }
-  function setRing() { ringEl.style.transform = "translateZ(-" + radius + "px) rotateY(" + angle + "deg)"; showCred(frontIndex()); }
-  var ringAnim = null;
-  function rotateTo(i) {
-    var target = -i * step, d = ((target - angle) % 360 + 540) % 360 - 180, from = angle, to = angle + d, t0 = performance.now();
-    cancelAnimationFrame(ringAnim);
-    (function a(now) { var k = Math.min(1, (now - t0) / 700), e = 1 - Math.pow(1 - k, 3); angle = from + (to - from) * e; setRing(); if (k < 1) ringAnim = requestAnimationFrame(a); })(performance.now());
-  }
-  setRing();
-  ringEl.addEventListener("click", function (e) { var c = e.target.closest(".cred-card"); if (c) { autoSpin = false; rotateTo(+c.getAttribute("data-i")); } });
-  $("cred-list").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { autoSpin = false; rotateTo(+b.getAttribute("data-i")); } });
-  (function ringDrag() {
-    var down = false, sx = 0, sa = 0;
-    stage.addEventListener("pointerdown", function (e) { down = true; sx = e.clientX; sa = angle; autoSpin = false; stage.classList.add("dragging"); cancelAnimationFrame(ringAnim); });
-    window.addEventListener("pointermove", function (e) { if (!down) return; angle = sa + (e.clientX - sx) * 0.4; setRing(); });
-    window.addEventListener("pointerup", function () { if (!down) return; down = false; stage.classList.remove("dragging"); rotateTo(frontIndex()); });
-  })();
-  stage.addEventListener("mouseenter", function () { autoSpin = false; });
-  (function spin() { if (autoSpin && credVisible && !document.hidden) { angle -= 0.1; setRing(); } requestAnimationFrame(spin); })();
+  $("cert-grid").addEventListener("click", function (e) { var b = e.target.closest("[data-ci]"); if (b) openCert(+b.getAttribute("data-ci")); });
+  $("certbox-close").addEventListener("click", function () { closeDialog(certbox); });
+  certbox.addEventListener("click", function (e) { if (e.target === certbox) closeDialog(certbox); });
   $("edu").innerHTML = (P.education || []).map(function (e) { return "<li><b>" + esc(e.title) + "</b><span>" + esc(e.org) + (e.when ? ", " + esc(e.when) : "") + "</span></li>"; }).join("");
   $("toolkit-grid").innerHTML = (P.toolkit || []).map(function (g) { return "<div class=\"tk-group glass\"><h4>" + esc(g.group) + "</h4>" + tags(g.items) + "</div>"; }).join("");
 
@@ -522,7 +505,6 @@
     C.phone ? ["Phone", "<a href=\"tel:" + esc(C.phoneHref || C.phone) + "\">" + esc(C.phone) + "</a>"] : null,
     C.calendly ? ["Book a call", "<a href=\"" + esc(C.calendly) + "\" target=\"_blank\" rel=\"noopener\">" + esc(short(C.calendly)) + "</a>"] : null,
     C.linkedin ? ["LinkedIn", "<a href=\"" + esc(C.linkedin) + "\" target=\"_blank\" rel=\"noopener\">" + esc(short(C.linkedin)) + "</a>"] : null,
-    C.github ? ["GitHub", "<a href=\"" + esc(C.github) + "\" target=\"_blank\" rel=\"noopener\">" + esc(short(C.github)) + "</a>"] : null,
     ["Based in", esc(pr.location)]
   ].filter(Boolean);
   $("contact-card").innerHTML = cardRows.map(function (r) { return "<div><dt>" + r[0] + "</dt><dd>" + r[1] + "</dd></div>"; }).join("");
@@ -534,7 +516,6 @@
     "<a class=\"btn btn-solid magnetic\" href=\"" + esc(bookHref) + "\"" + bookAttrs + ">Book a call</a>" +
     "<a class=\"btn btn-glass magnetic\" href=\"" + esc(mailHref) + "\">Email me</a>" +
     (C.linkedin ? "<a class=\"btn btn-glass magnetic\" href=\"" + esc(C.linkedin) + "\" target=\"_blank\" rel=\"noopener\">LinkedIn</a>" : "") +
-    (C.github ? "<a class=\"btn btn-glass magnetic\" href=\"" + esc(C.github) + "\" target=\"_blank\" rel=\"noopener\">GitHub</a>" : "") +
     (C.resumeReady ? "<a class=\"btn btn-glass magnetic\" href=\"" + esc(C.resume) + "\" download=\"Muhammad-Zaigham-Resume.pdf\">Download résumé</a>" : "") +
     (C.email ? "<button class=\"btn btn-glass\" type=\"button\" id=\"copy-email\">Copy email</button>" : "");
   var cp = $("copy-email");
@@ -569,7 +550,7 @@
   var jumpItems = [];
   sections.forEach(function (s) { jumpItems.push({ label: s.getAttribute("data-chapter"), kind: "Chapter", go: function () { s.scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); } }); });
   P.cases.forEach(function (c) { jumpItems.push({ label: c.title, kind: "Case study", go: function () { openCase(c.id); } }); });
-  creds.forEach(function (c, i) { jumpItems.push({ label: c.code + ", " + c.name, kind: "Credential", go: function () { $("credentials").scrollIntoView(); autoSpin = false; rotateTo(i); } }); });
+  creds.forEach(function (c, i) { jumpItems.push({ label: c.code + ", " + c.name, kind: "Credential", go: function () { openCert(i); } }); });
   P.beyond.forEach(function (d) { jumpItems.push({ label: d.title, kind: "Open", go: function () { openSheet("sheet-" + d.id); } }); });
   allKpis.forEach(function (r) { jumpItems.push({ label: r.k.name, kind: r.g.name + " KPI", go: function () { openSheet("sheet-playbook"); selectTab($("tab-metrics")); activeGroup = r.g.id; query = ""; $("kpi-search").value = ""; renderGroups(); renderKpis(); } }); });
   AC.modules.forEach(function (m) { jumpItems.push({ label: m.title, kind: "Academy", go: function () { activeModule = m.id; renderAcademy(); openSheet("sheet-academy"); } }); });
@@ -640,7 +621,6 @@
       document.querySelectorAll(".reveal, .split").forEach(function (el) { if (el.getBoundingClientRect().top > window.innerHeight * 0.9) { el.classList.add("pending"); ro.observe(el); } });
       document.querySelectorAll(".reveal-viz").forEach(function (el) { if (el.getBoundingClientRect().top > window.innerHeight * 0.9) { el.classList.add("pending-viz"); ro.observe(el); } });
     }
-    new IntersectionObserver(function (en) { credVisible = en[0].isIntersecting; }, { threshold: 0.2 }).observe(stage);
   }
 
   /* Hero entrance */

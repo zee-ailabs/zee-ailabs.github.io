@@ -1,7 +1,7 @@
 /*
   PORTFOLIO CONTENT
   Every word on the site, and everything the assistant knows, comes from this file.
-  Edit, commit to GitHub, and the site updates. No build step.
+  Edit, publish, and the site updates. No build step.
 
   - profile: hero hook, photo, floating proof chips
   - proof: the "Receipts" numbers. viz can be big, ring, bars, blocks, dots, dial or split
@@ -66,7 +66,7 @@ window.PORTFOLIO = {
     "phone": "+1 (647) 360-2021",
     "phoneHref": "+16473602021",
     "linkedin": "https://www.linkedin.com/in/mzaigham/",
-    "github": "https://github.com/zee-ailabs",
+    "github": "",
     "calendly": "https://calendly.com/muh-zaigham/30min",
     "leadsEndpoint": "https://formsubmit.co/ajax/muhammadzaigham697@gmail.com",
     "resume": "assets/docs/Muhammad-Zaigham-Resume.pdf",
@@ -846,7 +846,8 @@ window.PORTFOLIO = {
       "id": "4524667",
       "note": "Scope, risk and governance on large programs.",
       "credentialUrl": "",
-      "file": "assets/docs/certs/PMP-Certificate.jpg"
+      "file": "assets/docs/certs/PMP-Certificate.jpg",
+      "image": "assets/docs/certs/PMP-Certificate.jpg"
     },
     {
       "code": "CBAP",
@@ -858,7 +859,8 @@ window.PORTFOLIO = {
       "id": "184954155",
       "note": "Requirements and stakeholder work at depth.",
       "credentialUrl": "",
-      "file": "assets/docs/certs/CBAP-Certificate.pdf"
+      "file": "assets/docs/certs/CBAP-Certificate.pdf",
+      "image": "assets/docs/certs/CBAP-Certificate.jpg"
     },
     {
       "code": "POPM",
@@ -870,7 +872,8 @@ window.PORTFOLIO = {
       "id": "12609549-1991",
       "note": "Product ownership inside scaled agile programs.",
       "credentialUrl": "",
-      "file": "assets/docs/certs/SAFe-6-POPM-Certificate.pdf"
+      "file": "assets/docs/certs/SAFe-6-POPM-Certificate.pdf",
+      "image": "assets/docs/certs/SAFe-6-POPM-Certificate.jpg"
     },
     {
       "code": "SA",
@@ -882,19 +885,8 @@ window.PORTFOLIO = {
       "id": "44037584-9748",
       "note": "Leading enterprise-scale agile delivery.",
       "credentialUrl": "",
-      "file": "assets/docs/certs/SAFe-6-Agilist-Certificate.pdf"
-    },
-    {
-      "code": "York",
-      "name": "Product Management Certificate",
-      "issuer": "York University, Canada",
-      "logo": "",
-      "date": "2025",
-      "valid": "",
-      "id": "",
-      "note": "Canadian product management training.",
-      "credentialUrl": "",
-      "file": ""
+      "file": "assets/docs/certs/SAFe-6-Agilist-Certificate.pdf",
+      "image": "assets/docs/certs/SAFe-6-Agilist-Certificate.jpg"
     },
     {
       "code": "AZ-900",
@@ -906,7 +898,8 @@ window.PORTFOLIO = {
       "id": "FA53E763F6C82FD1",
       "note": "Cloud foundations for AI architecture decisions.",
       "credentialUrl": "",
-      "file": "assets/docs/certs/Azure-Fundamentals-Certificate.jpg"
+      "file": "assets/docs/certs/Azure-Fundamentals-Certificate.jpg",
+      "image": "assets/docs/certs/Azure-Fundamentals-Certificate.jpg"
     },
     {
       "code": "CSM",
@@ -918,7 +911,8 @@ window.PORTFOLIO = {
       "id": "001276655",
       "note": "Team-level agile delivery.",
       "credentialUrl": "",
-      "file": "assets/docs/certs/CSM-Certificate.pdf"
+      "file": "assets/docs/certs/CSM-Certificate.pdf",
+      "image": "assets/docs/certs/CSM-Certificate.jpg"
     },
     {
       "code": "LSSBB",
@@ -930,7 +924,8 @@ window.PORTFOLIO = {
       "id": "B-6422",
       "note": "Process and data-driven improvement.",
       "credentialUrl": "",
-      "file": "assets/docs/certs/Lean-Six-Sigma-Black-Belt-Certificate.jpg"
+      "file": "assets/docs/certs/Lean-Six-Sigma-Black-Belt-Certificate.jpg",
+      "image": "assets/docs/certs/Lean-Six-Sigma-Black-Belt-Certificate.jpg"
     },
     {
       "code": "ISO 9001",
@@ -942,7 +937,8 @@ window.PORTFOLIO = {
       "id": "15-8049",
       "note": "Quality management systems and audit.",
       "credentialUrl": "",
-      "file": "assets/docs/certs/ISO-9001-Auditor-Certificate.jpg"
+      "file": "assets/docs/certs/ISO-9001-Auditor-Certificate.jpg",
+      "image": "assets/docs/certs/ISO-9001-Auditor-Certificate.jpg"
     }
   ],
   "education": [
@@ -1117,7 +1113,7 @@ window.PORTFOLIO = {
       "stack": [
         "Three.js",
         "Conversational AI",
-        "GitHub Pages"
+        "Static web"
       ],
       "link": "",
       "linkLabel": ""

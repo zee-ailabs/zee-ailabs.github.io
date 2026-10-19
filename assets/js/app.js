@@ -535,7 +535,7 @@
     "<a class=\"btn btn-glass magnetic\" href=\"" + esc(mailHref) + "\">Email me</a>" +
     (C.linkedin ? "<a class=\"btn btn-glass magnetic\" href=\"" + esc(C.linkedin) + "\" target=\"_blank\" rel=\"noopener\">LinkedIn</a>" : "") +
     (C.github ? "<a class=\"btn btn-glass magnetic\" href=\"" + esc(C.github) + "\" target=\"_blank\" rel=\"noopener\">GitHub</a>" : "") +
-    (C.resumeReady ? "<a class=\"btn btn-glass magnetic\" href=\"" + esc(C.resume) + "\" target=\"_blank\" rel=\"noopener\">Résumé</a>" : "") +
+    (C.resumeReady ? "<a class=\"btn btn-glass magnetic\" href=\"" + esc(C.resume) + "\" download=\"Muhammad-Zaigham-Resume.pdf\">Download résumé</a>" : "") +
     (C.email ? "<button class=\"btn btn-glass\" type=\"button\" id=\"copy-email\">Copy email</button>" : "");
   var cp = $("copy-email");
   if (cp) cp.addEventListener("click", function () {
@@ -554,6 +554,15 @@
   /* Chapter rail */
   var sections = Array.prototype.slice.call(document.querySelectorAll("main section[data-chapter]"));
   $("rail-dots").innerHTML = sections.map(function (s) { return "<li><a href=\"#" + s.id + "\" aria-label=\"" + esc(s.getAttribute("data-chapter")) + "\"><span>" + esc(s.getAttribute("data-chapter")) + "</span></a></li>"; }).join("");
+  var TAB_LABEL = { Intro: "Home", Receipts: "Results" };
+  $("secnav-list").innerHTML = sections.filter(function (s) { return s.id !== "hero"; }).map(function (s) { var l = s.getAttribute("data-chapter"); return "<li><a href=\"#" + s.id + "\">" + esc(TAB_LABEL[l] || l) + "</a></li>"; }).join("");
+  var secTabs = Array.prototype.slice.call(document.querySelectorAll("#secnav-list a"));
+  function markTab(id) {
+    secTabs.forEach(function (a) { var on = a.getAttribute("href") === "#" + id; a.classList.toggle("active", on); if (on) { a.setAttribute("aria-current", "true"); var ul = $("secnav-list"); var x = a.offsetLeft - (ul.clientWidth - a.offsetWidth) / 2; if (ul.scrollWidth > ul.clientWidth) ul.scrollTo({ left: x, behavior: reduce ? "auto" : "smooth" }); } else a.removeAttribute("aria-current"); });
+  }
+  if (C.resume) { $("secnav-cv").href = C.resume; } else { $("secnav-cv").hidden = true; }
+  function fitTabs() { var ul = $("secnav-list"); ul.classList.toggle("overflowing", ul.scrollWidth > ul.clientWidth + 2); }
+  window.addEventListener("resize", fitTabs); setTimeout(fitTabs, 300);
   var dots = Array.prototype.slice.call(document.querySelectorAll(".rail-dots a"));
 
   /* Jump palette */
@@ -614,6 +623,7 @@
         var s = en.target;
         if (window.PortfolioScene) window.PortfolioScene.setState(s.getAttribute("data-state"));
         dots.forEach(function (a) { a.classList.toggle("active", a.getAttribute("href") === "#" + s.id); });
+        markTab(s.id);
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
     sections.forEach(function (s) { so.observe(s); });

@@ -940,3 +940,7 @@ html { scroll-padding-top: calc(var(--topbar-h) + 72px); }
 :root[data-theme="dark"] .secnav-cv, :root[data-theme="dark"] .secnav-list a.active { color: #070912; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .secnav-cv, :root:not([data-theme="light"]) .secnav-list a.active { color: #070912; } }
 @media (min-width: 1500px) { .secnav-list a { padding: 7px 12px; font-size: .8rem; } }
+/* v10: one subtle brand tint for all tabs */
+.secnav-list li, .secnav-list li:nth-child(n) { --c: var(--accent); }
+.secnav-list a { background: color-mix(in srgb, var(--accent) 6%, var(--glass)); border-color: var(--line-strong); }
+.secnav-list a:hover { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }

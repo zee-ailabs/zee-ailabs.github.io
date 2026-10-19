@@ -915,3 +915,28 @@ html { scroll-padding-top: calc(var(--topbar-h) + 72px); }
 .secnav-list.overflowing { -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); }
 .secnav-list a { padding: 6px 7px; font-size: .77rem; }
 @media (min-width: 1500px) { .secnav-list a { padding: 7px 12px; font-size: .82rem; } }
+/* ---------- v9: colored section tabs, cleaner chapter numbers ---------- */
+.kicker::before { content: none; display: none; }
+.k-num { display: inline-grid; place-items: center; min-width: 30px; height: 24px; margin-right: 2px; padding: 0 8px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 45%, var(--good)));
+  color: #fff; font-weight: 700; font-size: .72rem; letter-spacing: .04em; box-shadow: 0 6px 16px -8px var(--accent); }
+:root[data-theme="dark"] .k-num { color: #070912; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .k-num { color: #070912; } }
+
+.secnav-list { gap: 4px; padding: 3px 0; }
+.secnav-list li { --c: var(--accent); }
+.secnav-list li:nth-child(6n+2) { --c: #0ea5a0; }
+.secnav-list li:nth-child(6n+3) { --c: #e08a1e; }
+.secnav-list li:nth-child(6n+4) { --c: #e0457b; }
+.secnav-list li:nth-child(6n+5) { --c: #8b5cf6; }
+.secnav-list li:nth-child(6n+6) { --c: #0891b2; }
+.secnav-list a { padding: 6px 8px; border-radius: 10px; font-size: .75rem; font-weight: 650; color: var(--ink);
+  background: color-mix(in srgb, var(--c) 13%, var(--glass)); border: 1px solid color-mix(in srgb, var(--c) 38%, transparent);
+  transition: transform .2s var(--ease), background .2s, box-shadow .2s, color .2s; }
+.secnav-list a:hover { transform: translateY(-1px); background: color-mix(in srgb, var(--c) 22%, var(--glass)); border-color: var(--c); color: var(--ink); }
+.secnav-list a.active { background: var(--c); border-color: var(--c); color: #fff; box-shadow: 0 6px 16px -8px var(--c); }
+.secnav-cv { border-radius: 10px; background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 45%, var(--good))); color: #fff; border-color: transparent; box-shadow: 0 6px 16px -8px var(--accent); }
+.secnav-cv:hover { color: #fff; filter: brightness(1.08); border-color: transparent; }
+:root[data-theme="dark"] .secnav-cv, :root[data-theme="dark"] .secnav-list a.active { color: #070912; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .secnav-cv, :root:not([data-theme="light"]) .secnav-list a.active { color: #070912; } }
+@media (min-width: 1500px) { .secnav-list a { padding: 7px 12px; font-size: .8rem; } }

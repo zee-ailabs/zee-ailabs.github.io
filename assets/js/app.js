@@ -289,7 +289,7 @@
     if (!EMAIL_RE.test(email)) { $("gate-err").textContent = "Please enter a valid email address."; $("gate-err").hidden = false; return; }
     if (overLimit("mz-gate-n", 20)) { $("gate-err").textContent = "Thanks for the interest. Please email Zaigham directly for more case studies."; $("gate-err").hidden = false; return; }
     var c = gateCase, btn = $("gate-submit"); btn.disabled = true; btn.textContent = "Sending";
-    var data = { email: email, case_study: "Case " + c.number + ": " + c.title, page: location.href.split("#")[0], _subject: "Case study request: " + c.title, _replyto: email, _template: "table", _captcha: "false" };
+    var data = { email: email, case_study: "Case " + c.number + ": " + c.title, page: location.href.split("#")[0], _subject: "Case study request: " + c.title, _replyto: email, _captcha: "false" };
     notify(data).then(function () { return true; }, function () { return false; }).then(function (ok) {
       btn.disabled = false; btn.textContent = "Request case study";
       if (ok) { closeDialog(gate); $("gate-email").value = ""; toast("Request sent to Zaigham. He'll share the case study to your email."); track("case_request", { case_id: c.id }); }
@@ -311,7 +311,7 @@
       if (email && !EMAIL_RE.test(email)) { err.textContent = "That email doesn't look right. Fix it or leave it empty."; err.hidden = false; return; }
       if (overLimit("mz-fb-n", 10)) { err.textContent = "Thanks, that's plenty for today. Email Zaigham for anything else."; err.hidden = false; return; }
       btn.disabled = true; btn.textContent = "Sending";
-      var data = { name: name || "Anonymous", email: email || "Not given", feedback: text, page: location.href.split("#")[0], _subject: "Portfolio feedback" + (name ? " from " + name : ""), _template: "table", _captcha: "false" };
+      var data = { name: name || "Anonymous", email: email || "Not given", feedback: text, page: location.href.split("#")[0], _subject: "Portfolio feedback" + (name ? " from " + name : ""), _captcha: "false" };
       if (email) data._replyto = email;
       notify(data).then(function () { return true; }, function () { return false; }).then(function (ok) {
         btn.disabled = false; btn.textContent = "Send feedback";

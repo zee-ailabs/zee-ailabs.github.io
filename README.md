@@ -1,6 +1,6 @@
 # Muhammad Zaigham, AI Product Manager
 
-A 3D portfolio with a built-in assistant. Static files only: no build step, no framework, no trackers. It runs on GitHub Pages as is.
+A 3D portfolio with a built-in assistant. Static files only: no build step, no framework. Privacy-friendly Google Analytics 4 that skips visitors with Do Not Track or Global Privacy Control on. It runs on GitHub Pages as is.
 
 ## Put it online with GitHub Pages
 
@@ -56,7 +56,7 @@ To make it answer with a large language model, deploy `extras/assistant-worker.j
 ## Security
 
 - A Content Security Policy in `index.html` only allows this site's own files, plus FormSubmit for the forms and Google Analytics (only loads if you add an ID). If you add the optional AI twin Worker, add its URL to `connect-src`.
-- Three.js and the fonts are self-hosted, so the site makes no third-party requests on load. Until you add a GA4 ID it has no trackers or cookies.
+- Three.js and the fonts are self-hosted. The only third-party request on load is Google Analytics 4, and it is skipped for visitors with Do Not Track or Global Privacy Control on.
 - Everything shown on the page is escaped; visitor text in the AI twin and the form can never run as code.
 - The request and feedback forms have a hidden honeypot field, input length limits, an 8-second timeout and per-browser caps (20 requests, 10 feedback messages).
 - On slow devices the 3D scene lowers its resolution, then switches the page to a lighter rendering mode, so nothing stutters.

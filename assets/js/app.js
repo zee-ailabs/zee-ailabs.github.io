@@ -277,9 +277,8 @@
   function notify(data) {
     var url = C.leadsEndpoint;
     if (!url) return Promise.reject(new Error("no endpoint"));
-    var ctl = window.AbortController ? new AbortController() : null, timer = ctl ? setTimeout(function () { ctl.abort(); }, 8000) : 0;
-    return fetch(url, { method: "POST", mode: "cors", credentials: "omit", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data), signal: ctl ? ctl.signal : undefined })
-      .then(function (r) { clearTimeout(timer); if (!r.ok) throw new Error("bad status"); return r; }, function (e) { clearTimeout(timer); throw e; });
+    var req = fetch(url, { method: "POST", mode: "cors", credentials: "omit", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw new Error("bad status " + r.status); return r; });
+    return Promise.race([req, new Promise(function (ok) { setTimeout(function () { ok("pending"); }, 6000); })]); /* FormSubmit can take 30s+ but still delivers: never abort, treat a slow answer as sent */
   }
   function overLimit(key, max) { var n = store(key) || 0; if (n >= max) return true; store(key, n + 1); return false; }
   $("gate-form").addEventListener("submit", function (e) {

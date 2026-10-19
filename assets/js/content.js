@@ -59,7 +59,7 @@ window.PORTFOLIO = {
     ]
   },
   "analytics": {
-    "ga4Id": ""
+    "ga4Id": "G-43HNMD514G"
   },
   "contact": {
     "email": "muhammadzaigham697@gmail.com",

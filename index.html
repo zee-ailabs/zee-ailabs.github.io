@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; media-src 'self'; connect-src 'self' https://formsubmit.co https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Muhammad Zaigham, AI Product Manager</title>
+<meta name="description" content="Muhammad Zaigham, AI Product Manager. AI that ships, numbers that move: agentic AI, RAG and virtual assistants for enterprises and governments.">
+<meta property="og:title" content="Muhammad Zaigham, AI Product Manager">
+<meta property="og:description" content="AI that ships. Numbers that move. Ask my AI twin anything.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://zee-ailabs.github.io/assets/img/profile.jpg">
+<meta property="og:url" content="https://zee-ailabs.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://zee-ailabs.github.io/">
+<meta name="theme-color" content="#eceef2">
+<link rel="preload" href="assets/fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script src="assets/js/theme.js"></script>
+</head>
+<body>
+<!--PAGE-START-->
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="core-fallback" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><i id="progress"></i></div>
+
+<nav class="rail" aria-label="Chapters">
+  <a class="rail-logo" href="#hero" aria-label="Back to top"><span id="rail-initials">MZ</span></a>
+  <ol class="rail-dots" id="rail-dots"></ol>
+  <div class="rail-tools">
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to night mode">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="sun" d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.7-5.7 1.4-1.4M4.9 19.1l1.4-1.4m0-11.4L4.9 4.9m14.2 14.2-1.4-1.4M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path class="moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+    </button>
+    <button class="icon-btn" id="jump-open" type="button" aria-label="Search the portfolio" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 20-4.5-4.5M17 10.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="topbar">
+  <a class="rail-logo" href="#hero" aria-label="Back to top"><span>MZ</span></a>
+  <span class="topbar-name" id="topbar-name">Muhammad Zaigham</span>
+  <button class="icon-btn" id="theme-toggle-m" type="button" aria-label="Switch theme">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path class="sun" d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.7-5.7 1.4-1.4M4.9 19.1l1.4-1.4m0-11.4L4.9 4.9m14.2 14.2-1.4-1.4M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path class="moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+  </button>
+  <button class="icon-btn" id="jump-open-m" type="button" aria-label="Search the portfolio">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 20-4.5-4.5M17 10.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z"/></svg>
+  </button>
+</header>
+
+<main class="stage" id="stage">
+
+  <section class="hero" id="hero" data-chapter="Intro" data-state="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="status-line"><span class="pulse-dot" aria-hidden="true"></span><span id="hero-status"></span></p>
+        <h1 class="hero-hook" id="hero-hook"></h1>
+        <p class="hero-name"><strong id="hero-name"></strong><span id="hero-role"></span></p>
+        <p class="hero-sub" id="hero-sub"></p>
+        <div class="hero-actions">
+          <button class="btn btn-solid magnetic" type="button" id="ask-cta"><span class="mini-orb" aria-hidden="true"></span>Ask my AI twin</button>
+          <a class="btn btn-glass magnetic" id="hero-book" href="#contact">Book a call</a>
+        </div>
+        <p class="hero-contact" id="hero-contact"></p>
+        <ul class="pills" id="hero-pills" aria-label="Focus areas"></ul>
+      </div>
+      <div class="portrait-stage tilt-card" id="portrait">
+        <div class="portrait-ring" aria-hidden="true"></div>
+        <div class="portrait">
+          <img id="portrait-img" alt="Portrait of Muhammad Zaigham">
+        </div>
+        <ul class="float-chips" id="float-chips" aria-label="Highlights"></ul>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#proof" aria-label="Scroll to the results"><span></span></a>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+  <section class="chapter" id="proof" data-chapter="Receipts" data-state="impact">
+    <div class="wrap">
+      <header class="chapter-head">
+        <p class="kicker">Receipts</p>
+        <h2 class="split">Numbers from production, not pitch decks.</h2>
+      </header>
+      <div class="bento" id="bento"></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="ships" data-chapter="What I ship" data-state="aiwork">
+    <div class="wrap">
+      <header class="chapter-head">
+        <p class="kicker">What I ship</p>
+        <h2 class="split">Six kinds of AI. All in production.</h2>
+      </header>
+      <div class="ships" id="ships-grid"></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="industries" data-chapter="Industries" data-state="hub">
+    <div class="wrap industries">
+      <header class="chapter-head">
+        <p class="kicker">Any industry</p>
+        <h2 class="split" id="ind-title"></h2>
+        <p class="lede" id="ind-line"></p>
+        <p class="legend"><span class="lg lg-on"></span>Shipped AI into production here</p>
+      </header>
+      <div class="hub" id="hub" role="img"></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="method" data-chapter="How I ship" data-state="journey">
+    <div class="wrap">
+      <header class="chapter-head">
+        <p class="kicker">How I ship</p>
+        <h2 class="split" id="plm-title">The full product lifecycle, discovery to sunset.</h2>
+      </header>
+      <ol class="plm" id="plm"></ol>
+    </div>
+  </section>
+
+  <section class="chapter" id="journey" data-chapter="Journey" data-state="lab">
+    <div class="wrap">
+      <header class="chapter-head">
+        <p class="kicker">Journey</p>
+        <h2 class="split" id="journey-title">Enterprise, government, startup. I've seen it all.</h2>
+      </header>
+      <div class="tbar-wrap">
+        <div class="tbar" id="tbar" role="tablist" aria-label="Career, drawn to scale"></div>
+        <div class="tbar-axis" id="tbar-axis" aria-hidden="true"></div>
+      </div>
+      <article class="role-card glass" id="role-card" role="tabpanel" aria-live="polite"></article>
+    </div>
+  </section>
+
+  <section class="chapter" id="cases" data-chapter="Case studies" data-state="cases">
+    <div class="wrap">
+      <header class="chapter-head">
+        <p class="kicker" id="cases-kicker">Selected work</p>
+        <h2 class="split" id="cases-title">Eight AI products. Real problems. Measured results.</h2>
+        <p class="lede builder-line" id="builder-line"></p>
+      </header>
+      <div class="chips" id="case-filters" role="toolbar" aria-label="Filter case studies"></div>
+      <div class="tiles" id="case-grid"></div>
+      <p class="case-note" id="case-note"></p>
+    </div>
+  </section>
+
+  <section class="chapter" id="credentials" data-chapter="Credentials" data-state="credentials">
+    <div class="wrap">
+      <header class="chapter-head">
+        <p class="kicker">Credentials</p>
+        <h2 class="split">Certified to deliver.</h2>
+        <p class="lede" id="cred-count"></p>
+      </header>
+      <ul class="cred-wall" id="cred-wall" aria-label="Certification badges"></ul>
+      <div class="creds">
+        <div class="cred-stage" id="cred-stage" aria-hidden="true"><div class="cred-ring" id="cred-ring"></div></div>
+        <div class="cred-side">
+          <div class="cred-detail glass" id="cred-detail" aria-live="polite"></div>
+          <ul class="edu" id="edu" aria-label="Education"></ul>
+        </div>
+      </div>
+      <ul class="cred-chips" id="cred-list" aria-label="All certifications"></ul>
+      <h3 class="sub-head">Systems and tools</h3>
+      <div class="toolkit-grid" id="toolkit-grid"></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="beyond" data-chapter="Beyond" data-state="services">
+    <div class="wrap">
+      <header class="chapter-head">
+        <p class="kicker">Beyond the day job</p>
+        <h2 class="split">Open a door.</h2>
+      </header>
+      <div class="doors" id="doors"></div>
+    </div>
+  </section>
+
+  <section class="chapter contact" id="contact" data-chapter="Contact" data-state="contact">
+    <div class="wrap">
+      <p class="kicker">Contact</p>
+      <h2 class="contact-title split">AI stuck in pilot? Let's talk.</h2>
+      <a class="contact-email" id="contact-email" href="#"></a>
+      <div class="contact-row" id="contact-row"></div>
+      <dl class="contact-card glass" id="contact-card"></dl>
+    </div>
+  </section>
+
+  <section class="chapter feedback" id="feedback" data-chapter="Feedback" data-state="contact">
+    <div class="wrap fb-grid">
+      <header class="chapter-head">
+        <p class="kicker">Feedback</p>
+        <h2 class="split">Spotted something? Tell me.</h2>
+        <p class="lede">Feedback, an idea, a bug, or a finding you want to share. Name and email are optional; add your email if you'd like a reply.</p>
+      </header>
+      <form class="fb-form glass" id="fb-form" novalidate>
+        <div class="fb-row">
+          <div><label for="fb-name">Name <span class="muted">(optional)</span></label><input id="fb-name" type="text" autocomplete="name" maxlength="80"></div>
+          <div><label for="fb-email">Email <span class="muted">(optional)</span></label><input id="fb-email" type="email" autocomplete="email" maxlength="120"></div>
+        </div>
+        <label for="fb-msg">Your feedback</label>
+        <textarea id="fb-msg" rows="5" maxlength="2000" required placeholder="What should I improve, add or fix?"></textarea>
+        <div class="hp" aria-hidden="true"><label for="fb-hp">Leave this empty</label><input id="fb-hp" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="fb-foot"><span class="fb-count mono muted" id="fb-count">0 / 2000</span><button class="btn btn-solid" id="fb-submit" type="submit">Send feedback</button></div>
+        <p class="gate-err" id="fb-err" role="alert" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span id="footer-name"></span>
+      <span class="footer-contact" id="footer-contact"></span>
+      <span id="footer-privacy">Designed and built by Zaigham. No trackers, no cookies.</span>
+    </div>
+  </footer>
+</main>
+
+<aside class="agent" id="agent" aria-label="AI twin">
+  <header class="agent-head">
+    <div class="agent-avatar" aria-hidden="true">
+      <span class="agent-orb"></span>
+      <img id="agent-img" alt="" hidden>
+    </div>
+    <div class="agent-id">
+      <strong id="agent-name">Ask my AI twin</strong>
+      <span class="agent-state" id="agent-state">Online, trained on my portfolio</span>
+    </div>
+    <button class="icon-btn agent-min" id="agent-min" type="button" aria-label="Hide assistant">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </header>
+  <div class="agent-log" id="agent-log" role="log" aria-live="polite"></div>
+  <div class="agent-suggest" id="agent-suggest"></div>
+  <form class="agent-form" id="agent-form" autocomplete="off">
+    <label class="sr-only" for="agent-input">Ask about Zaigham</label>
+    <input id="agent-input" type="text" placeholder="Ask anything about Zaigham" maxlength="300">
+    <button class="agent-send" type="submit" aria-label="Send question">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+    </button>
+  </form>
+  <p class="agent-note" id="agent-note"></p>
+</aside>
+<button class="agent-launch" id="agent-launch" type="button" aria-controls="agent" aria-expanded="false">
+  <span class="agent-orb" aria-hidden="true"></span><span>Ask my AI twin</span>
+</button>
+
+<dialog class="drawer" id="case-drawer" aria-labelledby="drawer-title">
+  <div class="drawer-inner">
+    <button class="btn btn-glass drawer-close" id="drawer-close" type="button">Close</button>
+    <div id="drawer-body"></div>
+  </div>
+</dialog>
+
+<!-- Full-screen sheets opened from the "Beyond" doors -->
+<dialog class="sheet" id="sheet-lab" aria-labelledby="sheet-lab-title">
+  <div class="sheet-inner wrap">
+    <div class="sheet-head"><h2 id="sheet-lab-title">The Lab</h2><button class="btn btn-glass sheet-close" type="button">Close</button></div>
+    <p class="lede">What I build on my own time to stay hands-on with AI.</p>
+    <div class="lab" id="lab-grid"></div>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-playbook" aria-labelledby="sheet-playbook-title">
+  <div class="sheet-inner wrap">
+    <div class="sheet-head"><h2 id="sheet-playbook-title">The Playbook</h2><button class="btn btn-glass sheet-close" type="button">Close</button></div>
+    <p class="lede">How I measure, discover, prioritize and ship. Take what helps.</p>
+    <div class="tabs" role="tablist" aria-label="Playbook sections" id="pb-tabs">
+      <button role="tab" id="tab-metrics" aria-controls="panel-metrics" aria-selected="true" type="button">KPIs</button>
+      <button role="tab" id="tab-discovery" aria-controls="panel-discovery" aria-selected="false" type="button" tabindex="-1">Discovery</button>
+      <button role="tab" id="tab-priority" aria-controls="panel-priority" aria-selected="false" type="button" tabindex="-1">Prioritization</button>
+      <button role="tab" id="tab-method" aria-controls="panel-method" aria-selected="false" type="button" tabindex="-1">How I build</button>
+    </div>
+    <div class="panel" role="tabpanel" id="panel-metrics" aria-labelledby="tab-metrics">
+      <div class="kpi-bar">
+        <div class="chips" id="kpi-groups" role="toolbar" aria-label="KPI families"></div>
+        <label class="search"><span class="sr-only">Search KPIs</span><input id="kpi-search" type="search" placeholder="Search KPIs, like latency or churn" autocomplete="off"></label>
+      </div>
+      <p class="group-intro" id="kpi-intro"></p>
+      <div class="kpis" id="kpi-list"></div>
+    </div>
+    <div class="panel" role="tabpanel" id="panel-discovery" aria-labelledby="tab-discovery" hidden>
+      <div class="cards-3" id="discovery-list"></div>
+    </div>
+    <div class="panel" role="tabpanel" id="panel-priority" aria-labelledby="tab-priority" hidden>
+      <div class="picker">
+        <div id="picker-questions"></div>
+        <div class="picker-result" id="picker-result" aria-live="polite"></div>
+      </div>
+      <div class="cards-3" id="prio-list"></div>
+    </div>
+    <div class="panel" role="tabpanel" id="panel-method" aria-labelledby="tab-method" hidden>
+      <ol class="method" id="method-list"></ol>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-academy" aria-labelledby="sheet-academy-title">
+  <div class="sheet-inner wrap">
+    <div class="sheet-head"><h2 id="sheet-academy-title">PM Academy</h2><button class="btn btn-glass sheet-close" type="button">Close</button></div>
+    <p class="lede" id="academy-intro"></p>
+    <div class="academy">
+      <aside class="academy-side">
+        <div class="ring" id="academy-ring" role="img" aria-label="Course progress">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="52"></circle></svg>
+          <div class="ring-label"><strong id="ring-pct">0%</strong><span>complete</span></div>
+        </div>
+        <ol class="module-nav" id="module-nav"></ol>
+        <button class="link-btn" id="academy-reset" type="button">Reset my progress</button>
+      </aside>
+      <article class="module glass" id="module-view" aria-live="polite"></article>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-advisory" aria-labelledby="sheet-advisory-title">
+  <div class="sheet-inner wrap">
+    <div class="sheet-head"><h2 id="sheet-advisory-title">Advisory</h2><button class="btn btn-glass sheet-close" type="button">Close</button></div>
+    <p class="lede">A few advisory projects a year, alongside my full-time role.</p>
+    <div class="services" id="services"></div>
+    <div class="mapper glass">
+      <div>
+        <h3>AI opportunity mapper</h3>
+        <p class="muted">Pick an industry and a headache. Get a first use case, the metric that proves it, and a 30-day pilot.</p>
+        <div class="mapper-form">
+          <label for="mapper-industry">Your industry</label>
+          <select id="mapper-industry"></select>
+          <label for="mapper-pain">Your biggest headache</label>
+          <select id="mapper-pain"></select>
+        </div>
+      </div>
+      <div class="mapper-out" id="mapper-out" aria-live="polite"></div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="vbox" id="vbox" aria-labelledby="vbox-title">
+  <div class="vbox-inner">
+    <div class="vbox-head"><div><span class="mono muted" id="vbox-kicker"></span><h2 id="vbox-title"></h2></div><button class="btn btn-glass btn-sm" id="vbox-close" type="button">Close</button></div>
+    <video id="vbox-video" controls playsinline preload="metadata"></video>
+    <p class="muted vbox-note">Recreated from the live product with dummy data. Client details stay confidential.</p>
+  </div>
+</dialog>
+
+<dialog class="gate" id="gate" aria-labelledby="gate-title">
+  <form class="gate-inner" id="gate-form" novalidate>
+    <div class="gate-head"><h2 id="gate-title">Request the full case study</h2><button class="btn btn-glass btn-sm" id="gate-close" type="button">Close</button></div>
+    <p class="gate-case" id="gate-case"></p>
+    <p class="muted" id="gate-sub">Enter your email address, and the owner of this portfolio will share the case study with you by email.</p>
+    <label for="gate-email">Your email</label>
+    <input id="gate-email" name="email" type="email" autocomplete="email" maxlength="120" required placeholder="name@company.com">
+    <div class="hp" aria-hidden="true"><label for="gate-hp">Leave this empty</label><input id="gate-hp" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+    <p class="gate-err" id="gate-err" role="alert" hidden></p>
+    <button class="btn btn-solid" id="gate-submit" type="submit">Request case study</button>
+    <p class="gate-fine">Your email goes only to Zaigham. No newsletters, no sharing.</p>
+  </form>
+</dialog>
+
+<dialog class="jump" id="jump" aria-label="Search the portfolio">
+  <div class="jump-inner">
+    <label class="sr-only" for="jump-input">Search sections, case studies, KPIs and lessons</label>
+    <input id="jump-input" type="search" placeholder="Search sections, case studies, KPIs, lessons" autocomplete="off">
+    <ul class="jump-list" id="jump-list" role="listbox"></ul>
+    <p class="jump-hint">Enter to open. Esc to close.</p>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="assets/js/vendor/three.min.js"></script>
+<script src="assets/js/content.js"></script>
+<script src="assets/js/scene.js"></script>
+<script src="assets/js/assistant.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/analytics.js"></script>
+<!--PAGE-END-->
+</body>
+</html>

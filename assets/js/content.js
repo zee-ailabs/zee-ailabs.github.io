@@ -335,11 +335,12 @@ window.PORTFOLIO = {
           "GenAI assistant: answers in <2 min, down from ~15",
           "First-pass review accuracy 78% to 90%"
         ],
-        "text": "Delivered OCR document AI on Google Cloud (70% straight-through validation, 55% less manual verification), a 0 to 1 GenAI knowledge assistant over 300+ procedural PDFs for 120+ engineers and inspectors, and a drawing review redesign that cut repeat submissions by 18%.",
+        "text": "Delivered OCR document AI on Google Cloud (70% straight-through validation, 55% less manual verification), a 0 to 1 GenAI knowledge assistant on Microsoft Copilot Studio over 300+ procedural PDFs for 120+ engineers and inspectors, and a drawing review redesign that cut repeat submissions by 18%.",
         "tags": [
           "GenAI",
           "OCR",
           "Google Cloud",
+          "Microsoft Copilot",
           "Governance"
         ]
       },
@@ -498,7 +499,7 @@ window.PORTFOLIO = {
       "title": "GenAI knowledge assistant",
       "org": "RAK Municipality",
       "kind": "Delivered",
-      "summary": "A 0 to 1 GenAI assistant using RAG over 300+ procedural PDFs for 120+ engineers and inspectors, cutting time to find a procedure answer from ~15 minutes to under 2.",
+      "summary": "A 0 to 1 GenAI assistant on Microsoft Copilot Studio using RAG over 300+ procedural PDFs for 120+ engineers and inspectors, cutting time to find a procedure answer from ~15 minutes to under 2.",
       "my_role": "Took it from idea to launch: discovery, requirements, guardrails, evals and adoption.",
       "kpis": [
         "Productivity",
@@ -580,7 +581,7 @@ window.PORTFOLIO = {
       "number": "03",
       "cat": "rag",
       "kind": "RAG system",
-      "cloud": "Google Cloud",
+      "cloud": "Microsoft Copilot",
       "org": "RAK Municipality",
       "title": "Engineering Knowledge Assistant",
       "oneLiner": "A 0 to 1 assistant that answers engineers and inspectors from 300+ procedural PDFs, citing the exact clause.",
@@ -588,9 +589,10 @@ window.PORTFOLIO = {
       "what": "A RAG assistant with layout-aware PDF parsing, current-version indexing, hybrid retrieval, cited answers and owner routing when procedures don't cover a question.",
       "safe": "Current approved versions only; every answer cited; no decisions; abstain instead of guessing.",
       "stack": [
-        "Gemini Flash and Pro on Vertex AI",
-        "Vertex AI Search",
-        "Document AI layout parser"
+        "Copilot Studio",
+        "Azure OpenAI GPT-4o family",
+        "Azure AI Search",
+        "Document Intelligence layout model"
       ],
       "outcomes": [
         {

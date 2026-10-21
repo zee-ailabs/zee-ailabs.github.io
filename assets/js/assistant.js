@@ -131,7 +131,7 @@
         actions: acts(GO("Watch the demos", "cases"), GO("Open the lab", "lab")), follow: ["What is ModelFit?", "Tell me about the insurance claims workflow"] };
     } },
     { id: "cloud", keys: ["cloud", "azure", "aws", "google cloud", "gcp", "model evaluation", "evaluate models", "which model", "llm selection", "latency", "cost to serve", "evals", "evaluation", "model routing", "bedrock", "vertex"], answer: function () {
-      return { html: p("He's shipped on all three major clouds: Azure for du and most client work, Google Cloud (Vertex AI, Document AI) at RAK Municipality, and AWS (Bedrock, Textract) for insurance and property clients.") +
+      return { html: p("He's shipped on all three major clouds: Azure for du and most client work, Google Cloud (Document AI, Vertex AI) for RAK Municipality's document verification, Microsoft Copilot Studio on Azure for its knowledge assistant, and AWS (Bedrock, Textract) for insurance and property clients.") +
         p("On model choice, his story is simple: don't pay for the biggest model on every task. At Hrudai he benchmarked 6 frontier LLMs and routed each task by complexity, cutting cost per query by 30% at equal accuracy, with p95 responses under 3 seconds."),
         actions: acts(GO("Credentials and tools", "credentials")), follow: ["What guardrails does he use?", "What is ModelFit?"] };
     } },

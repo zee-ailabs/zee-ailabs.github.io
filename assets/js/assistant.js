@@ -155,8 +155,9 @@
     } },
     { id: "stakeholders", keys: ["stakeholder", "stakeholders", "leadership", "lead", "team", "teams", "led", "engineering", "engineers", "collaborate", "communication", "manage", "cross functional", "cross-functional"], answer: function () {
       return { html: p("At du he led a cross-functional team of 25+ engineers, data scientists, designers and vendor partners across 5 AI and digital products. His style: bring engineers the problem and the constraints, not a fixed solution, then make trade-offs together.") +
-        p("He also runs the ceremonies that keep big teams moving: PI planning, sprint planning, refinement, stand-ups and retrospectives, with 200+ SIT and UAT cycles and a 95%+ on-time release rate behind him."),
-        actions: acts(GO("How I ship", "method")), follow: ["How does he run product?", "How does he prioritize?"] };
+        p("He also runs the ceremonies that keep big teams moving: PI planning, sprint planning, refinement, stand-ups and retrospectives, with 200+ SIT and UAT cycles and a 95%+ on-time release rate behind him.") +
+        p("Engagement follows the PMP playbook: a RACI and operating model alignment up front, then executive reporting against agreed OKRs, so sponsors see progress, risks and the decisions they owe."),
+        actions: acts(GO("How I ship", "method")), follow: ["How does he run delivery?", "How does he report to executives?", "How does he prioritize?"] };
     } },
     { id: "process", keys: ["process", "approach", "method", "methodology", "framework", "how does he work", "how he builds", "how does he run product", "lifecycle", "plm", "end to end"], answer: function () {
       var st = (P.plm && P.plm.stages) || [];
@@ -171,7 +172,7 @@
     } },
     { id: "agile", keys: ["agile", "scrum", "safe", "pi planning", "sprint", "sprints", "standup", "stand-up", "retrospective", "retro", "refinement", "ceremonies", "release management", "release", "releases"], answer: function () {
       return { html: p("He's run delivery at scaled-agile size: PI planning, sprint planning, backlog refinement, daily stand-ups, reviews and retrospectives across 3 Scrum teams at du.") +
-        p("On release, he runs the full cycle: SIT and UAT, go-live readiness and change management. That's 200+ SIT and UAT cycles with a 95%+ on-time release rate. He's certified SAFe POPM, SAFe Agilist and ScrumMaster."),
+        p("On release, he runs the full cycle: SIT and UAT, production readiness, change management and handoffs to operations. That's 200+ SIT and UAT cycles with a 95%+ on-time release rate. He's certified SAFe POPM, SAFe Agilist and ScrumMaster."),
         actions: acts(GO("How I ship", "method")), follow: ["How does he prioritize?", "Which certifications?"] };
     } },
     { id: "kpis", keys: ["kpi", "kpis", "metric", "metrics", "measure", "measurement", "north star", "okr", "okrs"], answer: function () {
@@ -259,6 +260,91 @@
     } },
     { id: "languages", keys: ["language", "languages", "speak", "arabic", "urdu", "french", "english", "bilingual"], answer: function () {
       return { html: p("Several of his products were bilingual (Arabic and English), with separate eval thresholds per language, a pattern that carries straight over to English and French in Canada. For the languages he speaks himself, ask him directly.") , actions: acts(EMAIL) };
+    } },
+    /* ---------- delivery and project management, grounded in PMI's PMP framework ---------- */
+    { id: "pm", pm: 1, keys: ["project management", "project manager", "project delivery", "delivery experience", "delivery management", "delivery manager", "delivery lead", "program management", "programme management", "program manager", "technical program manager", "manage projects", "run projects", "run delivery", "how does he deliver", "how does he run delivery", "delivery track record", "track record", "pmp framework", "pmp approach", "pmp way", "apply pmp", "uses pmp", "use pmp", "pmp methodology", "pmp knowledge", "lead a project", "lead projects", "lead the project", "delivery"], answer: function () {
+      return { html: p(first + " runs delivery the PMP way: " + b("tailored and value-driven") + ", with predictive governance where the stakes demand it and agile execution where speed matters. The track record:") +
+        ul([b("On time.") + " 95%+ on-time release rate across 200+ SIT and UAT cycles at du, backed by defect triage and production-readiness reviews.",
+          b("At scale.") + " 80+ digital journeys, 20+ CRM enhancements and 60+ API integrations for 9M+ customers, across 3 Scrum teams.",
+          b("Under governance.") + " A 20+ initiative transformation portfolio at RAK Municipality, run on OKRs, governance and RAID controls, with PIA and TRA gates before every production release.",
+          b("Fast.") + " 2 of 8 scored opportunities taken to production within 4 months at Hrudai.",
+          b("For value.") + " 11 AI solutions in production, worth ~CAD $3.3M a year, with cross-functional teams of 25+."]) +
+        p("He holds the " + b("PMP (PMI, 2026)") + ", alongside SAFe POPM, SAFe Agilist, CSM, CBAP and Lean Six Sigma Black Belt."),
+        actions: acts(GO("How I ship", "method"), BOOK), follow: ["How does he map to the PMP performance domains?", "How does he manage risk and RAID?", "Predictive, agile or hybrid?", "How does he handle scope changes?"] };
+    } },
+    { id: "pmdomains", pm: 1, keys: ["performance domains", "performance domain", "pmbok", "pmbok 7", "pmbok guide", "pmi framework", "pmi standard", "pmp principles", "pmp performance domains", "map to the pmp", "map to pmp", "delivery framework", "project framework", "framework for delivery"], answer: function () {
+      return { html: p("Mapped to the " + b("8 project performance domains") + " in PMI's PMBOK Guide (7th edition), with evidence for each:") +
+        ul([b("Stakeholders.") + " Executive and B2B clients, government departments and vendor partners: RACI agreed up front, executive reporting throughout.",
+          b("Team.") + " Led 25+ engineers, data scientists, designers and vendor partners across 5 AI and digital products at du.",
+          b("Development approach and life cycle.") + " Tailored per context: SAFe and Scrum at du, gated predictive governance at RAK Municipality, lean MVP delivery at Hrudai.",
+          b("Planning.") + " Roadmaps and OKRs, PI and sprint planning, definition of ready, operating model alignment.",
+          b("Project work.") + " Backlog, vendor and dependency management across 60+ API integrations.",
+          b("Delivery.") + " Requirements traced from BRD and PRD to UAT in a traceability matrix; 95%+ on-time releases; production readiness and handoffs to operations.",
+          b("Measurement.") + " KPIs, OKRs and release thresholds set with engineering and UX, e.g. 80%+ containment and 8.5/10 CSAT on the du assistant.",
+          b("Uncertainty.") + " RAID controls, PIA and TRA, and AI guardrails with golden datasets that cut hallucinations from 15% to under 4%."]),
+        actions: acts(GO("How I ship", "method")), follow: ["Walk me through his project lifecycle", "How does he manage risk and RAID?", "How does he report to executives?"] };
+    } },
+    { id: "processgroups", pm: 1, keys: ["process groups", "process group", "initiating", "initiation", "monitoring and controlling", "monitor and control", "closing phase", "project closure", "close out", "closeout", "project lifecycle", "project life cycle", "project phases", "knowledge areas", "integration management", "walk me through his project lifecycle", "project charter", "charter", "lessons learned"], answer: function () {
+      return { html: p("Across PMI's " + b("five process groups") + ", these are the artifacts and controls he uses:") +
+        ul([b("Initiating.") + " Business case, scored opportunities (2 of 8 taken to production at Hrudai), stakeholders identified and a RACI agreed.",
+          b("Planning.") + " Roadmap and OKRs; scope in BRD, PRD, FRD and user stories; MoSCoW to lock MVP scope; PI and sprint plans; a RAID log and dependency map.",
+          b("Executing.") + " Scrum and SAFe ceremonies, vendor coordination, change management for the people who use the product.",
+          b("Monitoring and controlling.") + " KPI and OKR tracking, SIT and UAT with defect triage, RAID reviews, scope control through the traceability matrix, executive reporting.",
+          b("Closing.") + " Production-readiness reviews, PIA and TRA sign-off, handoffs to operations, then post-launch measurement that feeds the next iteration or a sunset decision."]),
+        actions: acts(GO("How I ship", "method")), follow: ["How does he manage risk and RAID?", "How does he handle scope changes?", "Predictive, agile or hybrid?"] };
+    } },
+    { id: "approach", pm: 1, keys: ["waterfall", "predictive", "hybrid approach", "hybrid delivery", "agile or waterfall", "waterfall or agile", "predictive agile or hybrid", "predictive or agile", "which methodology", "delivery approach", "delivery methodology", "tailoring", "tailor", "plan driven", "plan-driven", "development approach"], answer: function () {
+      return { html: p("He tailors the approach to uncertainty and regulation, as the PMP framework expects:") +
+        ul([b("Agile (Scrum and SAFe)") + " when requirements evolve and feedback is fast: 3 Scrum teams and PI planning at du, 80+ journeys shipped.",
+          b("Predictive gates") + " when compliance fixes the path: at RAK Municipality no release reached production without PIA and TRA clearance, inside an OKR-governed 20+ initiative portfolio.",
+          b("Hybrid") + " for most AI work: agile iteration wrapped in fixed release gates. At du each assistant capability shipped behind its own gate, with eval and latency thresholds agreed before launch."]) +
+        p("The principle he applies: fix the gates, flex the path."),
+        actions: acts(GO("How I ship", "method")), follow: ["How does he manage risk and RAID?", "Walk me through his project lifecycle"] };
+    } },
+    { id: "raid", pm: 1, keys: ["raid", "raid log", "raid controls", "risk management", "manage risk", "manage risks", "project risk", "project risks", "delivery risk", "risk register", "assumptions", "dependencies", "dependency", "dependency management", "mitigation", "mitigate", "blockers", "blocker", "issue management", "escalation", "escalations"], answer: function () {
+      return { html: p("He treats risk as a managed log, not a surprise. " + b("RAID") + " (risks, assumptions, issues, dependencies) is the backbone:") +
+        ul([b("Portfolio RAID.") + " RAID controls across a 20+ initiative transformation portfolio at RAK Municipality, each item with an owner and a response.",
+          b("Compliance risk retired early.") + " He led Privacy Impact and Threat and Risk Assessments so releases cleared for production instead of stalling at the end.",
+          b("Delivery risk.") + " 200+ SIT and UAT cycles, defect triage and production-readiness reviews behind a 95%+ on-time release rate.",
+          b("Dependencies.") + " 60+ API integrations and multiple vendor partners managed as tracked dependencies, not assumptions.",
+          b("AI risk as project risk.") + " A 200-case golden dataset, grounding checks and human escalation cut hallucinations from 15% to under 4% before scale-up."]),
+        actions: acts(GO("How I ship", "method")), follow: ["How does he report to executives?", "What guardrails does he use?", "How does he handle scope changes?"] };
+    } },
+    { id: "scope", pm: 1, keys: ["scope", "scope creep", "scope change", "scope changes", "handle scope changes", "change request", "change requests", "change control", "requirements change", "baseline", "mvp scope", "integrated change control"], answer: function () {
+      return { html: p("Scope is baselined, traced and changed on purpose:") +
+        ul([b("Baseline.") + " BRD, PRD and FRD, then user stories with acceptance criteria. At RAK Municipality he defined 100+ requirements for the qualification and inspection modules.",
+          b("Trace.") + " A requirement traceability matrix links every requirement to its test, so nothing slips between sign-off and UAT.",
+          b("Lock the MVP.") + " MoSCoW with stakeholders, plus a definition of ready before work enters a sprint.",
+          b("Control change.") + " New requests are scored (RICE or WSJF) against what they would displace, then the decision and its impact go back to stakeholders.",
+          b("Land it.") + " Change management so users adopt what ships, not just receive it."]),
+        actions: acts(GO("How I ship", "method")), follow: ["How does he prioritize?", "How does he manage schedule and cost?"] };
+    } },
+    { id: "schedulecost", pm: 1, keys: ["schedule", "schedules", "timeline", "timelines", "deadline", "deadlines", "on time", "on-time", "budget", "budgets", "cost management", "cost control", "manage schedule and cost", "schedule and cost", "estimate", "estimates", "estimation", "milestone", "milestones", "critical path", "earned value", "evm"], answer: function () {
+      return { html: p(b("Schedule.") + " Delivery runs on a fixed cadence of PI and sprint planning, with milestones tied to release gates. Results: a 95%+ on-time release rate at du, and 2 of 8 opportunities in production within 4 months at Hrudai.") +
+        p(b("Cost and value.") + " He manages cost where AI products win or lose it, per transaction and per outcome:") +
+        ul(["30% lower cost per query from model routing, at equal accuracy and p95 under 3 seconds", "~CAD $2.4M a year in contact-centre savings from the du assistant", "~CAD $450K a year in annualized client value at Hrudai", "Cost-to-serve and latency targets agreed with engineering before build"]) +
+        p("For specifics such as budget sizes or estimation on a particular program, " + first + " is happy to walk you through them."),
+        actions: acts(BOOK, EMAIL), follow: ["How does he manage risk and RAID?", "How does he report to executives?"] };
+    } },
+    { id: "governance", pm: 1, keys: ["project governance", "delivery governance", "portfolio management", "portfolio governance", "executive reporting", "report to executives", "reporting", "status report", "status reports", "status reporting", "steering", "steering committee", "pmo", "operating model", "operating model alignment", "raci", "raci matrix", "responsible accountable"], answer: function () {
+      return { html: p("Governance is how he keeps leaders informed and decisions fast:") +
+        ul([b("Portfolio.") + " A transformation portfolio of 20+ initiatives at RAK Municipality, governed through OKRs and RAID controls.",
+          b("Roles.") + " A RACI and operating model alignment up front, so every decision has one accountable owner.",
+          b("Executive reporting.") + " Progress, KPIs, risks and decisions needed, reported against the OKRs the program committed to.",
+          b("Gates.") + " PIA and TRA in government, eval and release thresholds for AI, production-readiness reviews before go-live."]),
+        actions: acts(GO("How I ship", "method")), follow: ["How does he manage risk and RAID?", "How does he manage stakeholders?"] };
+    } },
+    { id: "quality", pm: 1, keys: ["quality", "ensure quality", "quality management", "quality assurance", "quality control", "qa", "testing", "uat", "sit", "defect", "defects", "defect triage", "iso 9001", "qms", "continuous improvement", "process improvement"], answer: function () {
+      return { html: p("Quality is where his career started, and it shows:") +
+        ul([b("Process quality.") + " Led ISO 9001 QMS certification for customer operations at Ufone; Lean Six Sigma Black Belt.",
+          b("Release quality.") + " 200+ SIT and UAT cycles with defect triage and production-readiness reviews, sustaining a 95%+ on-time release rate.",
+          b("AI quality.") + " Golden datasets and LLM-as-a-judge evals as release gates: 92% task success and hallucinations under 4%."]),
+        actions: acts(GO("How I ship", "method")), follow: ["How does he manage risk and RAID?", "Walk me through his project lifecycle"] };
+    } },
+    { id: "pmvsprod", pm: 1, keys: ["project manager or product manager", "product manager or project manager", "product vs project", "project vs product", "difference between project and product", "is he a project manager", "can he be a project manager", "project manager role", "delivery role", "scrum master role", "program manager role"], answer: function () {
+      return { html: p("Both, by design. As a " + b("product manager") + " he decides what to build and why, and owns the outcome. As a " + b("PMP-certified delivery lead") + " he gets it shipped on scope, schedule and quality, with risks managed in the open.") +
+        p("That combination fits AI product, product owner and technical program or delivery lead roles, backed by PMP, SAFe POPM, SAFe Agilist, CSM and CBAP."),
+        actions: acts(BOOK, EMAIL), follow: ["How does he run delivery?", "Is he open to new roles?"] };
     } }
   ];
 
@@ -366,6 +452,12 @@
     if (prio) return { html: p(b(prio.name) + " (" + esc(prio.formula) + ").") + p(b("Best for: ") + esc(prio.best)) + p(b("Avoid when: ") + esc(prio.avoid)) + p(b(first + "'s take: ") + esc(prio.take)), actions: acts(GO("Prioritization picker", "playbook")), follow: ["How does he prioritize?"] };
     var disc = findNamed(P.playbook.discovery, q, DISC_ALIAS);
     if (disc && !/how does he run discovery|discovery methods/.test(q)) return { html: p(b(disc.name) + ". Use it when " + esc(disc.when.charAt(0).toLowerCase() + disc.when.slice(1))) + p(b("You walk away with: ") + esc(disc.output)) + p(b("What he's learned: ") + esc(disc.tip)), actions: acts(GO("All discovery methods", "playbook")), follow: ["How does he run discovery?"] };
+    /* Delivery and project management questions go to the PMP-grounded answers before certificate lookups */
+    if (!/ (certif|credential|certificate|issued|expire|expiry|valid)/.test(q)) {
+      var pmBest = null, pmS = 0;
+      KB.forEach(function (e) { if (!e.pm) return; var s = 0; e.keys.forEach(function (k) { var nk = norm(k).trim(); if (q.indexOf(" " + nk + " ") > -1) s += nk.indexOf(" ") > -1 ? 5 + nk.split(" ").length : 2; }); if (s > pmS) { pmS = s; pmBest = e; } });
+      if (pmBest && pmS >= 6) return pmBest.answer();
+    }
     var cert = /( safe )/.test(q) && !/ agilist /.test(q) ? (P.credentials || []).filter(function (c) { return c.code === "POPM"; })[0] : findCert(q);
     if (cert && !/ (certifications|certificates|certs|credentials) /.test(q)) return certAnswer(cert);
     var cs = findCase(q);
@@ -398,6 +490,7 @@
       "AI products: " + P.cases.map(function (c) { return c.number + " " + c.title + " (" + c.org + "): " + c.oneLiner + " Outcomes: " + c.outcomes.map(function (o) { return o.v + " " + o.l; }).join(", "); }).join(" "),
       "Results: " + (P.proof || []).map(function (i) { return i.value + " " + i.label; }).join("; ") + "\nEducation: " + (P.education || []).map(function (e) { return e.title + ", " + e.org; }).join("; "),
       "Certifications: " + P.credentials.map(function (c) { return c.code + " " + c.name; }).join("; "),
+      "Delivery (PMP): 95%+ on-time release rate across 200+ SIT/UAT cycles; 20+ initiative portfolio run on OKRs, governance and RAID controls; PIA and TRA release gates; 2 of 8 scored opportunities to production in 4 months; RACI, operating model alignment, executive reporting, production readiness and handoffs to operations.",
       "Contact: " + C.email].join("\n");
   }
 

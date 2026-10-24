@@ -540,7 +540,6 @@
   function markTab(id) {
     secTabs.forEach(function (a) { var on = a.getAttribute("href") === "#" + id; a.classList.toggle("active", on); if (on) { a.setAttribute("aria-current", "true"); var ul = $("secnav-list"); var x = a.offsetLeft - (ul.clientWidth - a.offsetWidth) / 2; if (ul.scrollWidth > ul.clientWidth) ul.scrollTo({ left: x, behavior: reduce ? "auto" : "smooth" }); } else a.removeAttribute("aria-current"); });
   }
-  if (C.resume) { $("secnav-cv").href = C.resume; } else { $("secnav-cv").hidden = true; }
   function fitTabs() { var ul = $("secnav-list"); ul.classList.toggle("overflowing", ul.scrollWidth > ul.clientWidth + 2); }
   window.addEventListener("resize", fitTabs); setTimeout(fitTabs, 300);
   var dots = Array.prototype.slice.call(document.querySelectorAll(".rail-dots a"));

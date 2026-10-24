@@ -987,3 +987,8 @@ html { scroll-padding-top: calc(var(--topbar-h) + 72px); }
   .tbar, .tbar-axis { min-width: 680px; }
   .tbar { overflow: visible; padding-bottom: 0; }
 }
+
+/* v15: Contact and Feedback merged into one Connect section */
+.connect-fb { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--line); }
+.connect-fb .sub-head { margin: 0 0 12px; }
+.connect-fb .lede { max-width: 40ch; }

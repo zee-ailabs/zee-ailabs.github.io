@@ -2123,7 +2123,8 @@ window.PORTFOLIO = {
           "FRD",
           "User stories",
           "Acceptance criteria",
-          "Requirement traceability matrix"
+          "Requirement traceability matrix",
+          "AI governance"
         ]
       },
       {
@@ -2145,7 +2146,10 @@ window.PORTFOLIO = {
           "PI planning",
           "Sprint planning",
           "Backlog refinement",
-          "Definition of ready"
+          "Definition of ready",
+          "Operating model alignment",
+          "RACI",
+          "RAID and dependency management"
         ]
       },
       {
@@ -2165,9 +2169,10 @@ window.PORTFOLIO = {
         "techniques": [
           "SIT and UAT",
           "Release management cycles",
-          "Go-live readiness",
+          "Production readiness",
           "PIA and TRA",
-          "Change management"
+          "Change management",
+          "Handoffs to operations"
         ]
       },
       {
@@ -2178,6 +2183,7 @@ window.PORTFOLIO = {
           "A/B testing",
           "CSAT and NPS",
           "Drift monitoring",
+          "Executive reporting",
           "Sunset decisions"
         ]
       }

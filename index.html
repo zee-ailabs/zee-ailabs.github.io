@@ -18,7 +18,7 @@
 <link rel="preload" href="assets/fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="assets/css/styles.css?v=12">
+<link rel="stylesheet" href="assets/css/styles.css?v=15">
 <script src="assets/js/theme.js"></script>
 </head>
 <body>
@@ -56,7 +56,6 @@
   <nav class="secnav" id="secnav" aria-label="Jump to a section">
     <div class="secnav-inner">
       <ul class="secnav-list" id="secnav-list"></ul>
-      <a class="secnav-cv" id="secnav-cv" href="assets/docs/Muhammad-Zaigham-Resume.pdf" download="Muhammad-Zaigham-Resume.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span>Résumé</span></a>
     </div>
   </nav>
 
@@ -181,34 +180,30 @@
     </div>
   </section>
 
-  <section class="chapter contact" id="contact" data-chapter="Contact" data-state="contact">
+  <section class="chapter contact" id="contact" data-chapter="Connect" data-state="contact">
     <div class="wrap">
-      <p class="kicker">Contact</p>
+      <p class="kicker">Connect</p>
       <h2 class="contact-title split">AI stuck in pilot? Let's talk.</h2>
       <a class="contact-email" id="contact-email" href="#"></a>
       <div class="contact-row" id="contact-row"></div>
       <dl class="contact-card glass" id="contact-card"></dl>
-    </div>
-  </section>
-
-  <section class="chapter feedback" id="feedback" data-chapter="Feedback" data-state="contact">
-    <div class="wrap fb-grid">
-      <header class="chapter-head">
-        <p class="kicker">Feedback</p>
-        <h2 class="split">Spotted something? Tell me.</h2>
-        <p class="lede">Feedback, an idea, a bug, or a finding you want to share. Name and email are optional; add your email if you'd like a reply.</p>
-      </header>
-      <form class="fb-form glass" id="fb-form" novalidate>
-        <div class="fb-row">
-          <div><label for="fb-name">Name <span class="muted">(optional)</span></label><input id="fb-name" type="text" autocomplete="name" maxlength="80"></div>
-          <div><label for="fb-email">Email <span class="muted">(optional)</span></label><input id="fb-email" type="email" autocomplete="email" maxlength="120"></div>
-        </div>
-        <label for="fb-msg">Your feedback</label>
-        <textarea id="fb-msg" rows="5" maxlength="2000" required placeholder="What should I improve, add or fix?"></textarea>
-        <div class="hp" aria-hidden="true"><label for="fb-hp">Leave this empty</label><input id="fb-hp" type="text" tabindex="-1" autocomplete="off"></div>
-        <div class="fb-foot"><span class="fb-count mono muted" id="fb-count">0 / 2000</span><button class="btn btn-solid" id="fb-submit" type="submit">Send feedback</button></div>
-        <p class="gate-err" id="fb-err" role="alert" hidden></p>
-      </form>
+      <div class="connect-fb fb-grid" id="feedback">
+        <header>
+          <h3 class="sub-head">Spotted something? Tell me.</h3>
+          <p class="lede">Feedback, an idea, a bug, or a finding you want to share. Name and email are optional; add your email if you'd like a reply.</p>
+        </header>
+        <form class="fb-form glass" id="fb-form" novalidate>
+          <div class="fb-row">
+            <div><label for="fb-name">Name <span class="muted">(optional)</span></label><input id="fb-name" type="text" autocomplete="name" maxlength="80"></div>
+            <div><label for="fb-email">Email <span class="muted">(optional)</span></label><input id="fb-email" type="email" autocomplete="email" maxlength="120"></div>
+          </div>
+          <label for="fb-msg">Your feedback</label>
+          <textarea id="fb-msg" rows="5" maxlength="2000" required placeholder="What should I improve, add or fix?"></textarea>
+          <div class="hp" aria-hidden="true"><label for="fb-hp">Leave this empty</label><input id="fb-hp" type="text" tabindex="-1" autocomplete="off"></div>
+          <div class="fb-foot"><span class="fb-count mono muted" id="fb-count">0 / 2000</span><button class="btn btn-solid" id="fb-submit" type="submit">Send feedback</button></div>
+          <p class="gate-err" id="fb-err" role="alert" hidden></p>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -385,10 +380,10 @@
 <div class="toast" id="toast" role="status" hidden></div>
 
 <script src="assets/js/vendor/three.min.js"></script>
-<script src="assets/js/content.js?v=14"></script>
+<script src="assets/js/content.js?v=15"></script>
 <script src="assets/js/scene.js?v=12"></script>
 <script src="assets/js/assistant.js?v=14"></script>
-<script src="assets/js/app.js?v=13"></script>
+<script src="assets/js/app.js?v=15"></script>
 <script src="assets/js/analytics.js?v=12"></script>
 <!--PAGE-END-->
 </body>

@@ -2147,9 +2147,9 @@ window.PORTFOLIO = {
           "Sprint planning",
           "Backlog refinement",
           "Definition of ready",
-          "Operating model alignment",
+          "Operating Model alignment",
           "RACI",
-          "RAID and dependency management"
+          "RAID & dependency management"
         ]
       },
       {

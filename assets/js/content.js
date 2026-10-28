@@ -705,7 +705,7 @@ window.PORTFOLIO = {
       ],
       "outcomes": [
         {
-          "v": "25 to 14 min",
+          "v": "18 to 8 min",
           "l": "processing time per file"
         },
         {
